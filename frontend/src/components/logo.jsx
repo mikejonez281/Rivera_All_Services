@@ -3,7 +3,7 @@ import { logo as logoImage } from '../assets';
 export const logo = () => {
   return (
     <img 
-      src={logoImage}
+      src={logo}
       alt="Rivera All Services"
       style={{
         maxHeight: '50px',

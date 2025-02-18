@@ -1,6 +1,6 @@
-import logoImage from '../assets/images/logo.png';
+import logoImage from '..frontend\public\images\logo.png';
 
-export const logo = () => (
+export const logoImage = () => (
   <img 
     src={logoImage}
     alt="Rivera All Services"
