@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
-//import { Logo } from './components/Logo.jsx';  // Correct case for file import
 
-import { Logo } from "../components/Logo";
 
 
 
