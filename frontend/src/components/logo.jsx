@@ -1,20 +1,14 @@
-import { logo as logoImage } from '../assets';
+import { Logo as LogoImage } from '../assets';
 
-export const logo = () => {
-  return (
+// components/Logo.jsx
+export const Logo = () => (
+  <div className="logo-container">
     <img 
-      src={logo}
+      src="/images/logo.png"  
       alt="Rivera All Services"
-      style={{
-        maxHeight: '50px',
-        width: 'auto',
-        display: 'block',
-        border: '1px solid red' // Temporary to see the container
-      }}
-      onError={(e) => {
-        console.error('logo failed to load:', e.target.src);
-        console.log('attempted path:', e.target.src);
-      }}
+      style={{ maxHeight: '50px', width: 'auto', display: 'block' }}
     />
-  );
-}; 
+    <span className="logo-text">Rivera All Services</span>
+  </div>
+);
+

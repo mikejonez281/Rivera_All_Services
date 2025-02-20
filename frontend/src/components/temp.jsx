@@ -1,8 +1,8 @@
-import { logo } from '../assets';
+import { Logo } from '../assets';
 
-export const logo = () => (
+export const Logo = () => (
   <img 
-    src={logo}
+    src={Logo}
     alt="Rivera All Services"
     style={{
       maxHeight: '50px',

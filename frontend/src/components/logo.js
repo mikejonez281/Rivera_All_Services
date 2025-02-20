@@ -1,8 +1,7 @@
-import logoImage from '..frontend\public\images\logo.png';
 
-export const logoImage = () => (
+export const LogoImage = () => (
   <img 
-    src={logoImage}
+    src="/images/logo.png"  // ✅ Directly use the public folder path
     alt="Rivera All Services"
     style={{
       maxHeight: '50px',
@@ -10,4 +9,4 @@ export const logoImage = () => (
       display: 'block'
     }}
   />
-); 
+);

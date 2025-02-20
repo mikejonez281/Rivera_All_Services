@@ -8,7 +8,10 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Chat from './components/Chat';
-import { logo } from './components/logo.jsx';
+import { Logo } from './components/Logo.jsx';  // Correct import syntax
+
+
+
 
 function LanguageSwitcher() {
   const { language, toggleLanguage } = useLanguage();
@@ -27,9 +30,9 @@ function AppContent() {
     <Router>
       <div className="App">
         <nav className="navbar">
-          <div className="logo">
+          <div className="Logo">
             <Link to="/">
-              <logo />
+              <Logo />
             </Link>
           </div>
           <div className="nav-links">
