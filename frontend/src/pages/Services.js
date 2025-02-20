@@ -1,4 +1,7 @@
-import { logo } from '../components/logo.jsx';  // lowercase component name
+//import { Logo } from '../components/Logo.jsx';  // lowercase component name
+
+import { Logo } from "../components/Logo";
+
 
 function Services() {
   return (

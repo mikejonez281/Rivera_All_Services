@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
-import { logo } from './logo.jsx';
+//import { logo } from './logo.jsx';
+
+import { Logo } from "../components/Logo";
+
 
 function Navbar() {
   const { language } = useLanguage();

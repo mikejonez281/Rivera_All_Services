@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { translations } from './translations';
@@ -8,7 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Chat from './components/Chat';
-import { Logo } from './components/Logo.jsx';  // Correct import syntax
+import Logo from "./components/Logo";
 
 
 

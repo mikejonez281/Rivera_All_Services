@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
-import { logo } from '../components/logo.jsx';
+//import { Logo } from './components/Logo.jsx';  // Correct case for file import
+
+import { Logo } from "../components/Logo";
+
+
 
 function Chat() {
   const [message, setMessage] = useState('');

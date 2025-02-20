@@ -1,6 +1,8 @@
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
-import { logo } from '../components/logo.jsx';
+//import { Logo } from '../components/Logo.jsx';
+import { Logo } from "../components/Logo";
+
 
 function Home() {
   const { language } = useLanguage();
