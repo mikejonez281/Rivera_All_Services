@@ -1,10 +1,10 @@
 const express = require("express");
-const axios = require("axios");
+const { PythonShell } = require("python-shell");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 3001;  // Port for your backend server
+const PORT = 5000;  // Port for your backend server
 
 // Enable CORS for frontend
 app.use(cors());
@@ -13,15 +13,19 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Chat endpoint to handle the requests
-app.post("/chat", async (req, res) => {
-    try {
-        const prompt = req.body.message;
-        const response = await axios.post("http://localhost:5000/generate", { prompt });
-        res.json({ response: response.data });
-    } catch (error) {
-        console.error("Error:", error);
-        res.status(500).send("Server error");
-    }
+app.post("/chat", (req, res) => {
+    const prompt = req.body.message;
+
+    // Set up PythonShell to run local_model.py with the prompt
+    PythonShell.run('local_model.py', { args: [prompt] }, (err, result) => {
+        if (err) {
+            console.error("Error:", err);
+            return res.status(500).send("Error executing Python script");
+        }
+
+        // Send the generated text as the response
+        res.json({ response: result[0] });
+    });
 });
 
 app.listen(PORT, () => {
