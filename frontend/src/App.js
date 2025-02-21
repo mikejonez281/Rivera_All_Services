@@ -57,9 +57,9 @@ function AppContent() {
           <div className="footer-content">
             <div className="footer-section">
               <h3>{t.footer.contact}</h3>
-              <p>Phone: 1-888-RIVERA</p>
-              <p>Email: info@riveraservices.com</p>
-            </div>
+              <p><a href="tel:+1 786-294-1207">Phone: +1 786-294-1207</a></p>
+              <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=riverallservices@gmail.com" target="_blank">Email: riverallservices@gmail.com</a></p>
+              </div>
             <div className="footer-section">
               <h3>{t.footer.quickLinks}</h3>
               <Link to="/services">{t.nav.services}</Link>
@@ -69,7 +69,7 @@ function AppContent() {
             <div className="footer-section">
               <h3>{t.footer.followUs}</h3>
               <div className="social-links">
-                <a href="#facebook">Facebook</a>
+                <a href="https://www.facebook.com/profile.php?id=100090539895960">Facebook</a>
                 <a href="#instagram">Instagram</a>
                 <a href="#twitter">Twitter</a>
               </div>
