@@ -10,9 +10,10 @@ const Chat = () => {
             const res = await axios.post("http://localhost:5000/chat", { message });
             setResponse(res.data.response);
         } catch (error) {
-            console.error("Error sending message:", error);
+            console.error("Error sending message:", error.response || error.message);
         }
     };
+   
 
     return (
         <div>
