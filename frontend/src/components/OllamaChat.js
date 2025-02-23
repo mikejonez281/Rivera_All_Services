@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 
-function OllamaChat() {
+function OllamaChat(LanguageSwitcher) {
   const [messages, setMessages] = useState([]); // Stores chat messages
   const [input, setInput] = useState(''); // Input field state
   const [loading, setLoading] = useState(false); // Loading state
@@ -27,12 +27,14 @@ function OllamaChat() {
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setInput('');
     setLoading(true);
-
+    
     try {
       const response = await axios.post('http://localhost:11434/api/generate', {
         model: 'llama2',
-        prompt: input + ' 30 words or less. ',
-        stream: false,
+        //Todo: If the user has clicked on Spanish button,
+        prompt: input + (LanguageSwitcher.language=='en' ? ' Maximum 30 word response. ' : ' En Español responda en 30 palabras maxima. '),
+        //prompt: input + ' 30 words or less.',
+              stream: false,
       });
 
       const ollamaMessage = { text: response.data.response, sender: 'Rivera All Services' };
