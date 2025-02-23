@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { translations } from './translations';
@@ -7,8 +7,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
-import Chat from './components/Chat';
+import OllamaChat from './components/OllamaChat';
 import Logo from "./components/Logo";
+
 
 
 
@@ -50,7 +51,7 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/chat" element={<Chat />} />
+          <Route path="/chat" element={<OllamaChat />} />
         </Routes>
 
         <footer className="footer">

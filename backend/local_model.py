@@ -1,25 +1,17 @@
+import subprocess
 from flask import Flask, request, jsonify
-from transformers import LlamaTokenizer, LlamaForCausalLM
 
 app = Flask(__name__)
 
-# Load model and tokenizer
-tokenizer = LlamaTokenizer.from_pretrained("llama-2-7b")
-model = LlamaForCausalLM.from_pretrained("llama-2-7b")
-
-@app.route("/chat", methods=["POST"])
+@app.route('/chat', methods=['POST'])
 def chat():
-    data = request.get_json()
-    prompt = data.get("message")
+    user_message = request.json.get('message')
+    model_response = subprocess.run(
+        ['ollama', 'run', 'llama2', user_message],
+        capture_output=True,
+        text=True
+    )
+    return jsonify({'response': model_response.stdout.strip()})
 
-    inputs = tokenizer(prompt, return_tensors="pt")
-    outputs = model.generate(inputs['input_ids'], max_length=100)
-
- # Process the incoming message
-    message = request.json.get('message')  # Get message from the body
-    response = "This is a response to: " + message  # Example response
-    return jsonify({"response": response})
-
-
-if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+if __name__ == '__main__':
+    app.run(host='localhost', port=5000)
