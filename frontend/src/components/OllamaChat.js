@@ -23,7 +23,7 @@ function OllamaChat(LanguageSwitcher) {
     if (!input.trim()) return;
 
     // Add user message to the chat
-    const userMessage = { text: input, sender: 'Client' };
+    const userMessage = { text: input, sender: 'Customer' };
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setInput('');
     setLoading(true);
@@ -53,8 +53,8 @@ function OllamaChat(LanguageSwitcher) {
 
   return (
     <div>
-      <h1>AI Chat</h1>
-      <div ref={chatContainerRef} style={{ height: '300px', overflowY: 'auto', border: '1px solid #ccc', padding: '10px' }}>
+      <h1>Rivera All Services Chat</h1>
+      <div ref={chatContainerRef} style={{ height: '150px', overflowY: 'auto', border: '5px solid #ccc', padding: '10px' }}>
         {messages.map((msg, index) => (
           <p key={index} style={{ textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
             <strong>{msg.sender}:</strong> {msg.text}
@@ -64,9 +64,9 @@ function OllamaChat(LanguageSwitcher) {
       <textarea
         value={input}
         onChange={handleInputChange}
-        placeholder="Ask a question..."
+        placeholder="Ask about our services..."
         rows="4"
-        cols="50"
+        cols="60"
       />
       <br />
       <button onClick={handleSubmit} disabled={loading}>
