@@ -127,7 +127,7 @@ function Home() {
       </div>
 
       <div className="why-choose-us">
-        <h2>{t.home.whyChooseUs}</h2>
+        <h1>{t.home.whyChooseUs}</h1>
         <div className="features">
           <div className="feature">
             <h3>{t.home.features.experience.title}</h3>

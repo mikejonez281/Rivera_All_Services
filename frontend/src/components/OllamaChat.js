@@ -32,7 +32,7 @@ function OllamaChat(LanguageSwitcher) {
       const response = await axios.post('http://localhost:11434/api/generate', {
         model: 'llama2',
         //Todo: If the user has clicked on Spanish button,
-        prompt: input + (LanguageSwitcher.language=='en' ? ' Maximum 30 word response. ' : ' En Español responda en 30 palabras maxima. '),
+        prompt: input + (LanguageSwitcher.language==='en' ? ' Maximum 30 word response. ' : ' En Español responda en 30 palabras maxima. '),
         //prompt: input + ' 30 words or less.',
               stream: false,
       });
@@ -43,7 +43,7 @@ function OllamaChat(LanguageSwitcher) {
       console.error('Error fetching response from Ollama:', error);
       const errorMessage = {
         text: 'Sorry, there was an error processing your request.',
-        sender: 'ollama',
+        sender: 'AI',
       };
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
     } finally {

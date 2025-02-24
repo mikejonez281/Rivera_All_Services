@@ -3,7 +3,7 @@ function Contact() {
     <div className="contact-page">
       <div className="contact-header">
         <h1>Contact Us</h1>
-        <p>Get in touch for a free consultation</p>
+        <p>We are here to help you with your home renovation needs. Get in touch with us to schedule a free consultation or setup an appointment.</p>
       </div>
 
       <div className="contact-content">
@@ -11,11 +11,11 @@ function Contact() {
           <h2>Reach Out</h2>
           <div className="info-item">
             <h3>Phone</h3>
-            <p>1-888-RIVERA</p>
+            <p><a href="tel:+1 786-294-1207">Phone: +1 786-294-1207</a></p>
           </div>
           <div className="info-item">
             <h3>Email</h3>
-            <p>info@riveraservices.com</p>
+            <p><a href="https://mail.google.com/mail/?view=cm&fs=1&to=riverallservices@gmail.com" target="_blank">Email: riverallservices@gmail.com</a></p>
           </div>
           <div className="info-item">
             <h3>Hours</h3>
