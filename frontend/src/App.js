@@ -8,7 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import OllamaChat from './components/OllamaChat';
-import Logo from "./components/Logo";
+import logo from "./components/logo";
 
 
 
@@ -31,9 +31,9 @@ function AppContent() {
     <Router>
       <div className="App">
         <nav className="navbar">
-          <div className="Logo">
+          <div className="logo">
             <Link to="/">
-              <Logo />
+              <logo />
             </Link>
           </div>
           <div className="nav-links">
