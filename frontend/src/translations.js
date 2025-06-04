@@ -103,6 +103,10 @@ export const translations = {
             {
               name: "Plumbing",
               desc: "Professional plumbing installation and repair."
+            },
+             {
+              name: "Custom Design", 
+                desc: "Tailored bathroom designs, exotic jet tubs and lighted showers to fit your style and needs."
             }
           ]
         },
@@ -120,6 +124,10 @@ export const translations = {
             {
               name: "Electrical",
               desc: "Safe and reliable electrical services for your kitchen."
+            },
+            {
+              name: "Appliance Installation",
+              desc: "Installation of microwaves, range hoods, and all major kitchen appliances."
             }
           ]
         },
@@ -255,6 +263,10 @@ export const translations = {
             {
               name: "Plomería",
               desc: "Instalación y reparación de plomería profesional."
+            },
+            {
+              name: "Diseño Personalizado",
+              desc: "Diseños de baño a medida, bañeras de hidromasaje exóticas y duchas iluminadas para adaptarse a su estilo y necesidades."
             }
           ]
         },
@@ -272,6 +284,10 @@ export const translations = {
             {
               name: "Eléctrico",
               desc: "Servicios eléctricos seguros y confiables para su cocina."
+            },
+            {
+              name: "Instalación de Electrodomésticos",
+              desc: "Instalación de microondas, campanas extractoras y electrodomésticos principales."
             }
           ]
         },

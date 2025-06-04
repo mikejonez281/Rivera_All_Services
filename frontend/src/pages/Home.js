@@ -1,11 +1,13 @@
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Home() {
   const { language } = useLanguage();
   const t = translations[language];
+  const navigate = useNavigate();
 
   const cardStyle = {
     backgroundSize: 'cover',
@@ -38,6 +40,18 @@ function Home() {
     padding: '1rem',
   };
 
+  const handleGeneralRepairsClick = () => {
+    navigate('/services#general');
+  };
+
+  const handleBathroomClick = () => {
+    navigate('/services#bathroom');
+  };
+
+  const handleKitchenClick = () => {
+    navigate('/services#kitchen');
+  };
+
   return (
     <div className="home">
       <div className="hero-section">
@@ -55,6 +69,7 @@ function Home() {
               ...cardStyle,
               backgroundImage: 'url("/images/bathroom-renovation.jpg")',
             }}
+            onClick={handleBathroomClick}
           >
             <div 
               className="overlay"
@@ -80,6 +95,7 @@ function Home() {
               ...cardStyle,
               backgroundImage: 'url("/images/kitchen-renovation.jpg")',
             }}
+            onClick={handleKitchenClick}
           >
             <div 
               className="overlay"
@@ -105,6 +121,7 @@ function Home() {
               ...cardStyle,
               backgroundImage: 'url("/images/general-repairs.jpg")',
             }}
+            onClick={handleGeneralRepairsClick}
           >
             <div 
               className="overlay"
@@ -147,4 +164,4 @@ function Home() {
   );
 }
 
-export default Home; 
+export default Home;

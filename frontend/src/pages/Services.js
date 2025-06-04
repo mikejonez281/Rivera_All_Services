@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
 import './Services.css'; // Import the CSS file for hover effect
+import { useNavigate } from 'react-router-dom';
 
 function Services() {
   const { language } = useLanguage();
   const t = translations[language];
+  const navigate = useNavigate();
+
+  const handleGeneralRepairsClick = () => {
+    navigate('/services#general');
+  };
+
+  useEffect(() => {
+    if (window.location.hash === '#general') {
+      const el = document.getElementById('general');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, []);
 
   return (
     <div className="container my-5">
       <h1 className="mb-4 text-center">{t.services.title}</h1>
       <p className="lead text-center">{t.services.description}</p>
       <div className="row">
-        {Object.values(t.services.categories).map((category, idx) => (
-          <div key={idx} className="col-12 mb-5">
+        {Object.entries(t.services.categories).map(([key, category], idx) => (
+          <div
+            key={idx}
+            className="col-12 mb-5"
+            id={key === 'bathroom' ? 'bathroom' : key === 'general' ? 'general' : key === 'kitchen' ? 'kitchen' : undefined}
+          >
             <h2 className="mb-3">{category.title}</h2>
             <div className="row">
               {category.items.map((item, i) => (
@@ -37,6 +56,9 @@ function Services() {
             </div>
           </div>
         ))}
+      </div>
+      <div onClick={handleGeneralRepairsClick} style={{ cursor: 'pointer' }}>
+        {/* General Repairs box content */}
       </div>
     </div>
   );
