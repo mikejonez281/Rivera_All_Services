@@ -7,19 +7,25 @@ function Services() {
   const t = translations[language];
 
   return (
-    <div className="services-page">
-      <h1>{t.services.title}</h1>
-      <p>{t.services.description}</p>
-      <div className="services-list">
+    <div className="container my-5">
+      <h1 className="mb-4 text-center">{t.services.title}</h1>
+      <p className="lead text-center">{t.services.description}</p>
+      <div className="row">
         {Object.values(t.services.categories).map((category, idx) => (
-          <div key={idx} className="service-category">
-            <h1>{category.title}</h1>
-            {category.items.map((item, i) => (
-              <div key={i} className="service-item">
-                <h5>{item.name}</h5>
-                <p>{item.desc}</p>
-              </div>
-            ))}
+          <div key={idx} className="col-12 mb-5">
+            <h2 className="mb-3">{category.title}</h2>
+            <div className="row">
+              {category.items.map((item, i) => (
+                <div key={i} className="col-md-6 col-lg-4 mb-4">
+                  <div className="card h-100 shadow-sm">
+                    <div className="card-body">
+                      <h5 className="card-title">{item.name}</h5>
+                      <p className="card-text">{item.desc}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         ))}
       </div>
