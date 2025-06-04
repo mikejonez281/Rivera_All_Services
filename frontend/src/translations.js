@@ -84,6 +84,71 @@ export const translations = {
         customerFocus: "Customer Focus",
         customerFocusText: "Your satisfaction is our top priority"
       }
+    },
+    services: {
+      title: "Our Services",
+      description: "We offer a wide range of services to meet your needs.",
+      categories: {
+        bathroom: {
+          title: "Bathroom Services",
+          items: [
+            {
+              name: "Tub and Shower Installation",
+              desc: "Expert installation of tubs and showers for your bathroom."
+            },
+            {
+              name: "Tile Work",
+              desc: "High-quality tile installation for bathroom floors and walls."
+            },
+            {
+              name: "Plumbing",
+              desc: "Professional plumbing installation and repair."
+            }
+          ]
+        },
+        kitchen: {
+          title: "Kitchen Services",
+          items: [
+            {
+              name: "Tile Work",
+              desc: "Tile installation for kitchen floors and backsplashes."
+            },
+            {
+              name: "Plumbing",
+              desc: "Kitchen plumbing installation and repair."
+            },
+            {
+              name: "Electrical",
+              desc: "Safe and reliable electrical services for your kitchen."
+            }
+          ]
+        },
+        general: {
+          title: "General Services",
+          items: [
+            {
+              name: "Painting",
+              desc: "Professional interior and exterior painting services."
+            },
+            {
+              name: "Drywall",
+              desc: "Drywall installation and repair for a flawless finish."
+            },
+            {
+              name: "Flooring",
+              desc: "Installation of hardwood, laminate, and vinyl flooring."
+            },
+            {
+              name: "Carpentry",
+              desc: "Custom carpentry solutions for your home or business."
+            },
+            {
+              name: "General Repairs",
+              desc: "Comprehensive repair services for all areas of your property."
+            }
+          ]
+        }
+      }
     }
   },
   es: {
@@ -170,6 +235,71 @@ export const translations = {
         reliabilityText: "Servicio constante y confiable en el que puede confiar",
         customerFocus: "Enfoque en el Cliente",
         customerFocusText: "Su satisfacción es nuestra máxima prioridad"
+      }
+    },
+    services: {
+      title: "Nuestros Servicios",
+      description: "Ofrecemos una amplia gama de servicios para satisfacer sus necesidades.",
+      categories: {
+        bathroom: {
+          title: "Servicios de Baño",
+          items: [
+            {
+              name: "Instalación de Bañeras y Duchas",
+              desc: "Instalación experta de bañeras y duchas para su baño."
+            },
+            {
+              name: "Trabajo de Azulejos",
+              desc: "Instalación de azulejos de alta calidad para pisos y paredes de baño."
+            },
+            {
+              name: "Plomería",
+              desc: "Instalación y reparación de plomería profesional."
+            }
+          ]
+        },
+        kitchen: {
+          title: "Servicios de Cocina",
+          items: [
+            {
+              name: "Trabajo de Azulejos",
+              desc: "Instalación de azulejos para pisos y salpicaderos de cocina."
+            },
+            {
+              name: "Plomería",
+              desc: "Instalación y reparación de plomería en la cocina."
+            },
+            {
+              name: "Eléctrico",
+              desc: "Servicios eléctricos seguros y confiables para su cocina."
+            }
+          ]
+        },
+        general: {
+          title: "Servicios Generales",
+          items: [
+            {
+              name: "Pintura",
+              desc: "Servicios profesionales de pintura interior y exterior."
+            },
+            {
+              name: "Paneles de Yeso",
+              desc: "Instalación y reparación de paneles de yeso para un acabado impecable."
+            },
+            {
+              name: "Pisos",
+              desc: "Instalación de pisos de madera, laminado y vinilo."
+            },
+            {
+              name: "Carpintería",
+              desc: "Soluciones de carpintería a medida para su hogar o negocio."
+            },
+            {
+              name: "Reparaciones Generales",
+              desc: "Servicios de reparación integral para todas las áreas de su propiedad."
+            }
+          ]
+        }
       }
     }
   }

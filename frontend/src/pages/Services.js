@@ -1,65 +1,30 @@
-
-
+import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations';
 
 function Services() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <div className="services-page">
-      <div className="services-header">
-        <h1>Our Services</h1>
-        <p>Comprehensive renovation and repair solutions for your home</p>
-      </div>
-
-      <div className="services-grid">
-        <div className="service-item">
-          <h2>Bathroom Remodeling</h2>
-          <p>Complete bathroom renovations including:</p>
-          <ul>
-            <li>Tub and shower installation</li>
-            <li>Tile work</li>
-            <li>Plumbing fixtures</li>
-            <li>Vanities and cabinets</li>
-            <li>Lighting and electrical</li>
-          </ul>
-        </div>
-
-        <div className="service-item">
-          <h2>Kitchen Renovation</h2>
-          <p>Full kitchen remodeling services:</p>
-          <ul>
-            <li>Cabinet installation</li>
-            <li>Countertop replacement</li>
-            <li>Appliance installation</li>
-            <li>Flooring</li>
-            <li>Lighting upgrades</li>
-          </ul>
-        </div>
-
-        <div className="service-item">
-          <h2>General Repairs</h2>
-          <p>Maintenance and repair services:</p>
-          <ul>
-            <li>Drywall repair</li>
-            <li>Painting</li>
-            <li>Flooring installation</li>
-            <li>Door and window replacement</li>
-            <li>General carpentry</li>
-          </ul>
-        </div>
-
-        <div className="service-item">
-          <h2>Custom Projects</h2>
-          <p>Specialized renovation services:</p>
-          <ul>
-            <li>Basement finishing</li>
-            <li>Room additions</li>
-            <li>Deck construction</li>
-            <li>Custom carpentry</li>
-            <li>Accessibility modifications</li>
-          </ul>
-        </div>
+      <h1>{t.services.title}</h1>
+      <p>{t.services.description}</p>
+      <div className="services-list">
+        {Object.values(t.services.categories).map((category, idx) => (
+          <div key={idx} className="service-category">
+            <h1>{category.title}</h1>
+            {category.items.map((item, i) => (
+              <div key={i} className="service-item">
+                <h5>{item.name}</h5>
+                <p>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );
 }
 
-export default Services; 
+export default Services;
