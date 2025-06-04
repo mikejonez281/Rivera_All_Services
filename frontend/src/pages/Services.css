@@ -1,0 +1,9 @@
+.service-card-pop {
+  transition: transform 0.25s cubic-bezier(.4,2,.6,1), box-shadow 0.25s cubic-bezier(.4,2,.6,1);
+}
+
+.service-card-pop:hover {
+  transform: scale(1.07);
+  box-shadow: 0 12px 32px 0 rgba(60,60,60,0.20), 0 4px 16px 0 rgba(0,0,0,0.12);
+  z-index: 2;
+}

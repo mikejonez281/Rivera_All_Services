@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
+import './Services.css'; // Import the CSS file for hover effect
 
 function Services() {
   const { language } = useLanguage();
@@ -18,11 +19,12 @@ function Services() {
               {category.items.map((item, i) => (
                 <div key={i} className="col-md-6 col-lg-4 mb-4">
                   <div
-                    className="card h-100 bg-light border-0"
+                    className="card h-100 bg-light border-0 service-card-pop"
                     style={{
                       boxShadow:
                         '0 2px 6px 0 rgba(60,60,60,0.10), 0 1.5px 3px 0 rgba(60,60,60,0.10), 0 0.5px 0.5px 0 rgba(255,255,255,0.8) inset, 0 2px 8px 0 rgba(0,0,0,0.08) inset',
                       borderRadius: '1rem',
+                      transition: 'transform 0.2s cubic-bezier(.4,2,.6,1), box-shadow 0.2s cubic-bezier(.4,2,.6,1)'
                     }}
                   >
                     <div className="card-body">
