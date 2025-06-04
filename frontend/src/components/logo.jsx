@@ -1,4 +1,5 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Logo = () => (
   <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
