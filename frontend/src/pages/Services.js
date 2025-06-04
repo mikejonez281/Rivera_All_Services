@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { translations } from '../translations';
-import './Services.css'; // Import the CSS file for hover effect
+import './Services.css';
 import { useNavigate } from 'react-router-dom';
 
 function Services() {
@@ -9,15 +9,17 @@ function Services() {
   const t = translations[language];
   const navigate = useNavigate();
 
-  const handleGeneralRepairsClick = () => {
-    navigate('/services#general');
-  };
-
   useEffect(() => {
-    if (window.location.hash === '#general') {
-      const el = document.getElementById('general');
+    // Support scrolling to any section by hash
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      const el = document.getElementById(id);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // If navigating to general, scroll to top of section, else center
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: id === 'general' ? 'start' : 'center'
+        });
       }
     }
   }, []);
@@ -31,7 +33,7 @@ function Services() {
           <div
             key={idx}
             className="col-12 mb-5"
-            id={key === 'bathroom' ? 'bathroom' : key === 'general' ? 'general' : key === 'kitchen' ? 'kitchen' : undefined}
+            id={key}
           >
             <h2 className="mb-3">{category.title}</h2>
             <div className="row">
@@ -56,9 +58,6 @@ function Services() {
             </div>
           </div>
         ))}
-      </div>
-      <div onClick={handleGeneralRepairsClick} style={{ cursor: 'pointer' }}>
-        {/* General Repairs box content */}
       </div>
     </div>
   );
