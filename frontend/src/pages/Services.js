@@ -17,10 +17,17 @@ function Services() {
             <div className="row">
               {category.items.map((item, i) => (
                 <div key={i} className="col-md-6 col-lg-4 mb-4">
-                  <div className="card h-100 shadow-sm">
+                  <div
+                    className="card h-100 bg-light border-0"
+                    style={{
+                      boxShadow:
+                        '0 2px 6px 0 rgba(60,60,60,0.10), 0 1.5px 3px 0 rgba(60,60,60,0.10), 0 0.5px 0.5px 0 rgba(255,255,255,0.8) inset, 0 2px 8px 0 rgba(0,0,0,0.08) inset',
+                      borderRadius: '1rem',
+                    }}
+                  >
                     <div className="card-body">
-                      <h5 className="card-title">{item.name}</h5>
-                      <p className="card-text">{item.desc}</p>
+                      <h5 className="card-title text-secondary">{item.name}</h5>
+                      <p className="card-text" style={{ color: '#444' }}>{item.desc}</p>
                     </div>
                   </div>
                 </div>
