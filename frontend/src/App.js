@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { translations } from './translations';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
 import OllamaChat from './components/OllamaChat';
-import logo from "./components/logo";
+import Logo from "./components/logo";
 
 
 
