@@ -1,46 +1,52 @@
+import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { translations } from '../translations';
 
 function About() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <div className="about-page">
       <div className="about-header">
-        <h1>About Rivera All Services</h1>
-        <p>Your trusted partner in home improvement since 2000</p>
+        <h1>{t.about.title}</h1>
+        <p>{t.about.description}</p>
       </div>
 
       <div className="about-content">
         <section className="about-section">
-          <h2>Our Story</h2>
-          <p>Rivera All Services has been serving our community for over two decades, providing top-quality renovation and repair services to homeowners and businesses alike. What started as a small family business has grown into a trusted name in home improvement, while maintaining our commitment to personal service and exceptional quality.</p>
+          <h2>{t.about.ourStory}</h2>
+          <p>{t.about.ourStoryText}</p>
         </section>
 
         <section className="about-section">
-          <h2>Our Mission</h2>
-          <p>We strive to deliver outstanding renovation services that transform our clients' spaces while providing excellent customer service and maintaining the highest standards of craftsmanship.</p>
+          <h2>{t.about.ourMission}</h2>
+          <p>{t.about.ourMissionText}</p>
         </section>
 
         <section className="about-section">
-          <h2>Our Team</h2>
-          <p>Our experienced team of professionals brings decades of combined experience in all aspects of home renovation. Each member of our team is carefully selected and thoroughly trained to ensure they meet our high standards of quality and service.</p>
+          <h2>{t.about.ourTeam}</h2>
+          <p>{t.about.ourTeamText}</p>
         </section>
 
         <section className="about-section">
-          <h2>Our Values</h2>
+          <h2>{t.about.ourValues}</h2>
           <div className="values-grid">
             <div className="value-item">
-              <h3>Quality</h3>
-              <p>We never compromise on the quality of our work</p>
+              <h3>{t.about.values.quality}</h3>
+              <p>{t.about.values.qualityText}</p>
             </div>
             <div className="value-item">
-              <h3>Integrity</h3>
-              <p>Honest and transparent in all our dealings</p>
+              <h3>{t.about.values.integrity}</h3>
+              <p>{t.about.values.integrityText}</p>
             </div>
             <div className="value-item">
-              <h3>Reliability</h3>
-              <p>Consistent, dependable service you can count on</p>
+              <h3>{t.about.values.reliability}</h3>
+              <p>{t.about.values.reliabilityText}</p>
             </div>
             <div className="value-item">
-              <h3>Customer Focus</h3>
-              <p>Your satisfaction is our top priority</p>
+              <h3>{t.about.values.customerFocus}</h3>
+              <p>{t.about.values.customerFocusText}</p>
             </div>
           </div>
         </section>
@@ -49,4 +55,4 @@ function About() {
   );
 }
 
-export default About; 
+export default About;
