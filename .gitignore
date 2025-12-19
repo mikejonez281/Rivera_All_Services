@@ -1,4 +1,13 @@
-# Node.js (Backend)
-node_modules
+# Dependencies
+/node_modules
+/frontend/node_modules
+
+# Environment variables
 .env
-.git
+
+# Build folder
+/build
+/frontend/build
+
+# Log files
+*.log
