@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
-import OllamaChat from './components/OllamaChat';
+import Chat from './components/Chat';
 import Logo from "./components/logo";
 
 
@@ -27,22 +27,33 @@ function LanguageSwitcher() {
 function AppContent() {
   const { language } = useLanguage();
   const t = translations[language];
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isChatVisible, setIsChatVisible] = useState(false);
+
+  const toggleChat = () => {
+    if (!isChatOpen) {
+      setIsChatOpen(true);
+      setIsChatVisible(true);
+    } else {
+      setIsChatVisible(false);
+      // Wait for animation to finish before unmounting
+      setTimeout(() => setIsChatOpen(false), 300);
+    }
+  };
 
   return (
     <Router>
       <div className="App">
         <nav className="navbar">
           <div className="logo">
-            <Link to="/">
-              <logo />
-            </Link>
+            <Link to="/">              <Logo />
+ </Link>
           </div>
           <div className="nav-links">
             <Link to="/">{t.nav.home}</Link>
             <Link to="/about">{t.nav.about}</Link>
             <Link to="/services">{t.nav.services}</Link>
             <Link to="/contact">{t.nav.contact}</Link>
-            <Link to="/chat" className="chat-button">{t.nav.chat}</Link>
             <LanguageSwitcher />
           </div>
         </nav>
@@ -52,8 +63,16 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/chat" element={<OllamaChat />} />
         </Routes>
+
+        {!isChatVisible && (
+          <button onClick={toggleChat} className="chat-fab">
+            <span className="chat-fab-icon">💬</span>
+            <span className="chat-fab-text">Chat!</span>
+          </button>
+        )}
+
+        {isChatOpen && <Chat closeChat={toggleChat} isVisible={isChatVisible} />}
 
         <footer className="footer">
           <div className="footer-content">

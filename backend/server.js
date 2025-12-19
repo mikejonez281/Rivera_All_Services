@@ -1,48 +1,38 @@
-// const express = require("express");
-// const cors = require("cors");
-// const bodyParser = require("body-parser");
+const express = require('express');
+const cors = require('cors');
+require('dotenv').config();
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-// const app = express();
-// const PORT = 5000;  // Ensure it's listening on port 5000
+const app = express();
+const port = process.env.PORT || 3001;
 
-// // Enable CORS for frontend
-// app.use(cors());
+// Middleware
+app.use(cors()); // Allow requests from your frontend
+app.use(express.json()); // To parse JSON bodies
 
-// // Body parser middleware
-// app.use(bodyParser.json());
+// Initialize the Gemini client with the API key from the backend's .env file
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// // Define POST route for /chat
-// app.post("/chat", (req, res) => {
-//     const prompt = req.body.message;
-//     // Your logic to handle the message
-//     res.json({ response: "Standard bathroom remodeling services is $3000" });
-// });
+app.post('/api/chat', async (req, res) => {
+  try {
+    const { prompt } = req.body;
 
-// app.listen(PORT, () => {
-//     console.log(`Server running on port ${PORT}`);
-// });
+    if (!prompt) {
+      return res.status(400).json({ error: 'Prompt is required' });
+    }
 
+    const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const text = response.text();
 
-import { LlamaModel, LlamaContext, LlamaChatSession } from "@llama-node/llama-cpp";
-import path from "path";
+    res.json({ response: text });
+  } catch (error) {
+    console.error('Error in /api/chat:', error);
+    res.status(500).json({ error: 'Failed to fetch response from Gemini' });
+  }
+});
 
-async function runLlama() {
-  // Path to the Llama model file. Adjust as needed.
-  const modelPath = path.resolve(process.cwd(), "./models/llama-2-7b-chat.Q4_K_M.gguf");
-
-  // Load the Llama model
-  const model = new LlamaModel({ modelPath });
-
-  // Create a Llama context
-  const context = new LlamaContext({ model });
-
-  // Create a chat session
-  const session = new LlamaChatSession({ context });
-
-  // Interact with the model
-  const response = await session.prompt("What is the capital of France?");
-  
-  console.log(response); // Output the model's response
-}
-
-runLlama().catch(console.error);
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
