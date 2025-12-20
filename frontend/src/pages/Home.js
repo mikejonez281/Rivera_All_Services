@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function Home() {
+function Home({ openChat }) {
   const { language } = useLanguage();
   const t = translations[language];
   const navigate = useNavigate();
@@ -57,7 +57,7 @@ function Home() {
       <div className="hero-section">
         <h1>{t.home.welcome}</h1>
         <p>{t.home.subtitle}</p>
-        <button className="cta-button">{t.home.getStarted}</button>
+        <button className="cta-button" onClick={openChat}>{t.home.getStarted}</button>
       </div>
 
       <div className="services-preview">

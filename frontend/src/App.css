@@ -18,6 +18,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .logo img {
@@ -56,6 +57,8 @@
 .nav-links {
   display: flex;
   gap: 2rem;
+  align-items: center;     /* Vertically centers items */
+  padding-right: 1rem;
 }
 
 .nav-links a {
@@ -78,7 +81,7 @@
 .hero-section {
   background-color: #282c34;
   color: white;
-  padding: 4rem 2rem;
+  padding: 1rem 2rem;
   text-align: center;
 }
 
@@ -153,15 +156,72 @@
 
 .footer-bottom {
   text-align: center;
-  margin-top: 2rem;
-  padding-top: 2rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
   border-top: 1px solid #404040;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+    z-index: 1001;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .nav-links {
-    display: none;
+    position: fixed;
+    right: -100%;
+    top: 0;
+    flex-direction: column;
+    background-color: #282c34;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: 0.3s;
+    justify-content: center;
+    padding-right: 0;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links a {
+    margin: 1rem 0;
+    font-size: 1.5rem;
   }
   
   .footer-content {
@@ -238,6 +298,10 @@ button:hover {
 button:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+
+.cta-button {
+  border-radius: 3px;
 }
 
 .response {

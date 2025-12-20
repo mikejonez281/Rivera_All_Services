@@ -7,14 +7,15 @@ const Logo = () => (
       src="/images/logo.png" 
       alt="Rivera All Services"
       style={{
-        maxHeight: "60px",
+        maxHeight: "90px",
         width: "auto",
-        display: "block"
+        display: "block",
+        borderRadius: "10px" // Added rounded corners here
       }}
     />
     <span style={{
       fontFamily: "'YourCustomFont', sans-serif",
-      fontSize: "28px",
+      fontSize: "40px",
       fontWeight: "bold",
       color: "#777"  // Adjust color as needed
     }}>
@@ -24,5 +25,3 @@ const Logo = () => (
 );
 
 export default Logo;
-
-

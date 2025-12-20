@@ -30,6 +30,11 @@ function AppContent() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isChatVisible, setIsChatVisible] = useState(false);
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
+
   const toggleChat = () => {
     if (!isChatOpen) {
       setIsChatOpen(true);
@@ -46,20 +51,27 @@ function AppContent() {
       <div className="App">
         <nav className="navbar">
           <div className="logo">
-            <Link to="/">              <Logo />
+            <Link to="/" onClick={closeMenu}>              <Logo />
  </Link>
           </div>
-          <div className="nav-links">
-            <Link to="/">{t.nav.home}</Link>
-            <Link to="/about">{t.nav.about}</Link>
-            <Link to="/services">{t.nav.services}</Link>
-            <Link to="/contact">{t.nav.contact}</Link>
+
+          <div className={`hamburger ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
+            <span className="bar"></span>
+            <span className="bar"></span>
+            <span className="bar"></span>
+          </div>
+
+          <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+            <Link to="/" onClick={closeMenu}>{t.nav.home}</Link>
+            <Link to="/about" onClick={closeMenu}>{t.nav.about}</Link>
+            <Link to="/services" onClick={closeMenu}>{t.nav.services}</Link>
+            <Link to="/contact" onClick={closeMenu}>{t.nav.contact}</Link>
             <LanguageSwitcher />
           </div>
         </nav>
 
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home openChat={toggleChat} />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
@@ -90,7 +102,7 @@ function AppContent() {
             <div className="footer-section">
               <h3>{t.footer.followUs}</h3>
               <div className="social-links">
-                <a href="https://www.facebook.com/profile.php?id=100090539895960">Facebook</a>
+                <a href="https://www.facebook.com/profile.php?id=100090539895960" target="_blank" rel="noopener noreferrer">Facebook</a>
                 <a href="#instagram">Instagram</a>
                 <a href="#twitter">Twitter</a>
               </div>
